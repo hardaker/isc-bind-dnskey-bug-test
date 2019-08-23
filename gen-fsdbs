@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# converts captured tcpdump data into graphable data
+# using the extract-data.py script
+
+for i in tcpdump.* ; do
+    # output file is FSDB tab-separated formatted
+    fsdbfile=`echo $i | sed s/tcpdump/fsdb/`
+    if [ ! -f $fsdbfile ] ; then
+	# -t: use numeric timestamps
+	tcpdump -tt -r $i -n |
+	    python extract-data.py > $fsdbfile
+    fi
+done
