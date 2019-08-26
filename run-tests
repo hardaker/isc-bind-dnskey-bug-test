@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# runs everything needed to
+# 1) perform repeated queries,
+# 2) extract the data
+# 3) graph the results
+
+# actually run the bind queries
+./dns.tests.sh
+
+# Turn the tcpdump data into fsdb files (tab separated with a header)
+./gen-fsdbs
+
+# create graph data
+./gen-graphdata
+
+echo "counting the number of packets in each tcpdump file:"
+./gen-counts
+
