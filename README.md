@@ -9,7 +9,7 @@ news](https://www.isi.edu/~hardaker/news/20190404-bind-bug.html) site.
 
 # Usage
 
-To run the tests, first edit `dns.test.sh` and then run `run-tests`:
+To run the tests, first edit `config.sh` and then run `run-tests`:
 
     # ./run-tests
 
