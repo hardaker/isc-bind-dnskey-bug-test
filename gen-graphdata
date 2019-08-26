@@ -1,5 +1,17 @@
 #!/bin/bash
 
+#
+# Looks at all files matching fsdb.* (generated from gen-fsdbs)
+# and turns them into graph.* files containing graphable data
+#
+
+# outputs:
+#    - graph.* files
+#    - list of files to graph via gnuplot
+
+# requirements:
+#    - FSDB (from perl-FSDB on fedora)
+
 col=timeoffset
 
 for i in fsdb.* ; do
