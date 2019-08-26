@@ -8,6 +8,7 @@ timeoffset=None
 
 prefix_for_TLD="broken.bind.test"
 
+# poor mans tcpdump data extraction regex
 # match a timestamp, a type and a query name
 querymatch=re.compile('^([0-9]+)\..* ([A-Z]+)\? ([^ ]+)')
 

@@ -13,6 +13,7 @@ capture_address=10.1.0.4
 
 # how to generate the queries to send...
 # a combination of PREFIX and TLD
+# (the prefix must be set in extract-data.py too)
 prefix_for_TLD=broken.bind.test
 TLDs=com org eu net info biz edu
 
