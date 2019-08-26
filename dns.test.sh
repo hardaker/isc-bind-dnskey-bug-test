@@ -1,27 +1,6 @@
 #!/bin/bash
 
-# iterations to run
-iterations=20
-digs_per_iteration=10
-output_dir=`pwd`
-capture_interface=wlp4s0
-TLDs=com org eu net info biz edu
-prefix_for_TLD=broken.bind.test
-tld_sleep=1
-dig_sleep=30
-iteration_sleep=5
-
-# environment setup - using the system resolver
-stopcmd="systemctl stop named"
-startcmd="systemctl start named"
-vardir=/var/named/dynamic/
-
-# environment setup - using a specifically compiled version
-prefix="/usr/local/bind-9.11.5-P4"
-stopcmd="killall named"
-startcmd="$prefix/sbin/named -u named"
-vardir="$prefix/var/named/dynamic/"
-managed_bad=$output_dir/managed_keys.bad
+. config.sh
 
 # kill anything left-over/running when started
 $stopcmd
