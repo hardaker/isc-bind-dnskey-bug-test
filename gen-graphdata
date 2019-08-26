@@ -1,0 +1,10 @@
+#!/bin/bash
+
+col=timeoffset
+
+for i in fsdb.* ; do
+    graphfile=`echo $i | sed s/fsdb/graph/`
+    cat $i | dbrow '_type eq "DNSKEY"' |
+    	dbcol $col | dbrowuniq -c $col > $graphfile
+    echo "'$graphfile', \\"
+done

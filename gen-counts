@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This examines any number of tcpdump files and creates
+
+for i in tcpdump* ; do echo -n $i "  " ; tcpdump -s 0 -n -r $i src 10.1.0.4  2>/dev/null | egrep 'DNSKEY. \.' | wc -l ; done 
+
