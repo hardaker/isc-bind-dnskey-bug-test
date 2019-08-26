@@ -1,6 +1,15 @@
 #!/bin/bash
 
-# This examines any number of tcpdump files and creates
+# This examines any number of tcpdump files and simply counts packets
+# in them from an address.  It's solely for rapidly finding the
+# most interesting result files via pure counts.
 
-for i in tcpdump* ; do echo -n $i "  " ; tcpdump -s 0 -n -r $i src 10.1.0.4  2>/dev/null | egrep 'DNSKEY. \.' | wc -l ; done 
+. config.sh
+
+for i in tcpdump* ; do
+    echo -n $i "  "
+    tcpdump -s 0 -n -r $i src $capture_address  2>/dev/null |
+	egrep 'DNSKEY. \.' |
+	wc -l ;
+done 
 
